@@ -1,3 +1,7 @@
+body{
+    color:white;
+    
+}
 h1{
     text-align: center;
     color: 000000;  
@@ -7,6 +11,7 @@ h1{
     margin-top: 39px;
     padding: 0%;
     align-content: center;
+    -webkit-text-stroke: 1px black;
 }
 
 .heading{
@@ -31,6 +36,7 @@ p, .devoured{
 .content-burger_list {
     display: flex;
     justify-content: space-between;
+    color:white;
     background: #1c8cf5;
     padding: 10px;
     height: 60px;
