@@ -1,33 +1,33 @@
 var connection = require("../config/connection");
 
 var orm = {
-    selectAll: function (tableInput, rep) {
+    selectAll: function (tableInput, cb) {
         var queryString = "SELECT * FROM" + tableInput + ";";
         connection.query(queryString, function (err, result) {
             if (err) {
                 throw err;
             }
-            rep(result);
+            cb(result);
         });
     },
 
-    insertOne: function (tableInput, val, rep) {
+    insertOne: function (tableInput, val, cb) {
         connection.query('INSERT INTO ' + tableInput + "(burger_name) VALUES ('" + val + "');", function (err, result) {
             if (err) {
                 throw err;
             }
-            rep(result);
+            cb(result);
         });
     },
 
-    updateOne: function (tableInput, condition, rep) {
+    updateOne: function (tableInput, condition, cb) {
         connection.query('UPDATE ' + tableInput + ' SET devoured=true WHERE id=' + condition + ';', function (err, result) {
             if (err) throw err;
-            rep(result);
+            cb(result);
         })
     },
 
-    deleteOne: function (tableInput, condition, rep) {
+    deleteOne: function (tableInput, condition, cb) {
         var queryString = "DELETE FROM " + tableInput;
         queryString += " WHERE id=";
         queryString += condition;
@@ -35,7 +35,7 @@ var orm = {
             if (err) {
                 throw err;
             }
-            rep(result);
+            cb(result);
         });
     }
 };
